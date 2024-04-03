@@ -20,8 +20,8 @@ The code provided in this repository consists of a single Python script `etl_pip
 
 Before running the code, ensure you have the following prerequisites installed:
 
-1. **Visual Studio Code**: Download and install Visual Studio Code from [here](https://code.visualstudio.com/).
-2. **Python**: Ensure Python is installed on your system. You can download it from [here](https://www.python.org/downloads/).
+1. **Visual Studio Code**
+2. **Python**
 3. **Required Python Libraries**: Install the necessary Python libraries using pip:
     ```bash
     pip install pandas sqlalchemy
