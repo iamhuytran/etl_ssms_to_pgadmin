@@ -4,11 +4,11 @@ from sqlalchemy.exc import SQLAlchemyError
 
 
 # value to connect server
-server="LAPTOP-CJG2OK7J\SQLEXPRESS"
-database="AdventureWorks2019"
+server="{sql server name}"
+database="{database name}"
  
 def extract(): 
-    engine = create_engine('mssql+pyodbc://@' + 'LAPTOP-CJG2OK7J\SQLEXPRESS' + '/' + 'AdventureWorks2019' + '?trusted_connection=yes&driver=SQL+Server+Native+Client+11.0')
+    engine = create_engine('mssql+pyodbc://@' + '{server name}' + '/' + '{database name}' + '?trusted_connection=yes&driver={driver name}')
 
 # test connection
     try:
@@ -19,17 +19,17 @@ def extract():
         return
 # read sql
     with engine.connect() as conn:
-        df = pd.read_sql_query('SELECT TOP(10) AddressID FROM [AdventureWorks2019].[Person].[Address]', conn)
+        df = pd.read_sql_query('{SQL query}', conn)
         return df
 
-postgres_server = 'PostgreSQL 14'
-postgres_id = 'postgres'
-postgres_pw = 'Galaxy123'
+postgres_server = '{postgres server name}'
+postgres_id = '{postgres id}'
+postgres_pw = '{postgres pw}'
 
 # load data to postgresql
 def load(df, tbl):
     try:
-        engine = create_engine(f'postgresql://{postgres_id}:{postgres_pw}@localhost:5432/AdventureWorks')
+        engine = create_engine(f'postgresql://{postgres_id}:{postgres_pw}@localhost:5432/{postgres database name}')
         # save df to postgres
         df.to_sql(f'stg_{tbl}', engine, if_exists='replace', index=False, chunksize=100000)
         # add elapsed time to final print out
