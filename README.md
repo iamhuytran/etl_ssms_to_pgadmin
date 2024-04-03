@@ -1,43 +1,46 @@
+# SSMS to pgAdmin ETL Data Pipeline - README
 
-SSMS to pgAdmin ETL Data Pipeline - README
 This repository contains code for an ETL (Extract, Transform, Load) data pipeline project that facilitates transferring data from SQL Server Management Studio (SSMS) to pgAdmin using Visual Studio Code (VSC) as the development environment.
 
-Project Overview
-The project focuses on automating the process of extracting data from SSMS, transforming it if necessary, and loading it into pgAdmin. This pipeline simplifies the movement of data between different database systems, enabling seamless integration and analysis.
+## Project Overview
 
-Code Structure
-etl_pipeline.py: This Python script orchestrates the entire ETL process. It includes functions for extraction, transformation, and loading of data.
+The project aims to automate the process of extracting data from SSMS, transforming it if necessary, and loading it into pgAdmin. This pipeline simplifies the movement of data between different database systems, enabling seamless integration and analysis.
 
-config.json: This JSON file stores configuration parameters such as database connection details. Modify this file according to your database setup.
+## Code Overview
 
-Prerequisites
+The code provided in this repository consists of a single Python script `etl_pipeline.py`. Here's a brief overview of its functionality:
+
+- **`etl_pipeline.py`**: This script contains functions for extraction, transformation, and loading of data.
+  - **Extract Function**: Establishes a connection to the SQL Server database using SQLAlchemy, executes an SQL query to extract data from SSMS, and returns the extracted data as a Pandas DataFrame.
+  - **Load Function**: Establishes a connection to the PostgreSQL database using SQLAlchemy, saves the DataFrame to the PostgreSQL database in pgAdmin, and handles any errors that occur during the data loading process.
+
+## Prerequisites
+
 Before running the code, ensure you have the following prerequisites installed:
 
-Visual Studio Code: Download and install Visual Studio Code from here.
-Python: Ensure Python is installed on your system. You can download it from here.
-Required Python Libraries: Install the necessary Python libraries using pip:
-bash
-Copy code
-pip install pandas sqlalchemy
-Usage
-Clone the Repository: Clone this repository to your local machine:
+1. **Visual Studio Code**: Download and install Visual Studio Code from [here](https://code.visualstudio.com/).
+2. **Python**: Ensure Python is installed on your system. You can download it from [here](https://www.python.org/downloads/).
+3. **Required Python Libraries**: Install the necessary Python libraries using pip:
+    ```bash
+    pip install pandas sqlalchemy
+    ```
 
-bash
-Copy code
-git clone https://github.com/iamhuytran/ssms_to_pgadmin_etl.git
-Configure SSMS and pgAdmin:
+## Usage
 
-Ensure you have access to the SQL Server instance in SSMS and the PostgreSQL database in pgAdmin.
-Modify the connection details in the config.json file to match your SSMS and pgAdmin configurations.
-Run the ETL Pipeline:
 
-Open etl_pipeline.py in Visual Studio Code.
-Review and modify the script if necessary.
-Execute the script in Visual Studio Code or via the command line:
-bash
-Copy code
-python etl_pipeline.py
-Monitor Execution:
+1. **Configure SSMS and pgAdmin**:
+    - Ensure you have access to the SQL Server instance in SSMS and the PostgreSQL database in pgAdmin.
+    - Modify the connection details within the script `etl_pipeline.py` to match your SSMS and pgAdmin configurations.
 
-The script will extract data from SSMS, transform it if required, and load it into pgAdmin.
-Monitor the script execution for any errors or warnings.
+2. **Run the ETL Pipeline**:
+    - Open `etl_pipeline.py` in Visual Studio Code.
+    - Review and modify the script if necessary.
+    - Execute the script in Visual Studio Code or via the command line:
+        ```bash
+        python etl_pipeline.py
+        ```
+
+3. **Monitor Execution**:
+    - The script will extract data from SSMS, transform it if required, and load it into pgAdmin.
+   
+
