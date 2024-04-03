@@ -5,6 +5,8 @@ This repository contains code for an ETL (Extract, Transform, Load) data pipelin
 ## Project Overview
 
 The project aims to automate the process of extracting data from SSMS, transforming it if necessary, and loading it into pgAdmin. This pipeline simplifies the movement of data between different database systems, enabling seamless integration and analysis.
+![image](https://github.com/iamhuytran/ssms_to_pgadmin_etl/assets/102829980/181bf5a6-48cb-4106-8d3f-0c715f7ec21b)
+
 
 ## Code Overview
 
